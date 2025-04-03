@@ -9,12 +9,28 @@
             text-align: center;
             font-size: 2rem;
             margin-top: 20%;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <p id="message">🔮 요다가 말하길... 🔮</p>
-    <button onclick="showRandomMessage()">눌러서 확인하기</button>
+    <button onclick="showRandomMessage()" aria-label="랜덤 메시지 보기">눌러서 확인하기</button>
 
     <script>
         function showRandomMessage() {
@@ -25,7 +41,11 @@
                 "좋은 생각이에요!",
                 "다시 시도해보세요."
             ];
-            document.getElementById("message").innerText = messages[Math.floor(Math.random() * messages.length)];
+
+            // 랜덤 인덱스 생성
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            // 메시지 업데이트
+            document.getElementById("message").innerText = messages[randomIndex];
         }
     </script>
 </body>
